@@ -48,3 +48,16 @@ Park.prototype.annualVisitors = function(){
 Park.prototype.annualRevenue = function(annualRev){
   return annualRev * this.ticket_price;
 };
+
+Park.prototype.findMostPopularDino = function(){
+  const dinos = this.dinos;
+
+  let max = dinos[0];
+
+  for(let dino of this.dinos){
+    if (dino.visitors > max.visitors){
+      max = dino;
+    }
+  }
+  return max
+};

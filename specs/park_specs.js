@@ -42,10 +42,14 @@ describe('Park', function(){
       assert.deepStrictEqual(actual, 2)
   })
 
-  xit("Should find all dinosaurs of a particular species",function(){
-    actual = park.findBySpecies("Stegosaurus");
-    assert.strictEqual(actual,[dino3])
-  })
+
+  it('should find dinosaur by species', function(){
+    park.addDinos(dino1);
+    park.addDinos(dino2);
+    park.addDinos(dino3);
+  const actual = park.findBySpecies("Stegosaurus")
+  assert.deepStrictEqual(actual, [dino2])
+});
 
   it('should calculate total number of visitors per day', function(){
      park.addDinos(dino1);
@@ -73,10 +77,12 @@ describe('Park', function(){
     assert.deepStrictEqual(actual, 319375)
    });
 
-
-  xit("should be able to find the dinosaur that attracts the most visitors",function(){
-   actual = park.mostPopularDinosaur();
-   assert.strictEqual(actual, dinosaur2)
- });
+ it('should find dino that attracts the most visitors', function(){
+      park.addDinos(dino1);
+      park.addDinos(dino2);
+      park.addDinos(dino3);
+      const actual = park.findMostPopularDino();
+      assert.strictEqual(actual, dino1)
+    });
 
 })
